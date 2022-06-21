@@ -1,0 +1,19 @@
+﻿@model IEnumerable<string>
+
+@Html.ActionLink("Очистить фильтр", "List", "Product", null,
+    new { @class = "btn btn-block btn-default btn-lg" })
+
+@foreach (var categoryFilter in Model)
+{
+    @Html.RouteLink(categoryFilter, new
+    {
+        controller = "Product",
+        action = "List",
+        category = categoryFilter,
+        page = 1
+    }, new
+    {
+        @class = "btn btn-block btn-default btn-lg"
+            + (categoryFilter == ViewBag.SelectedCategory ? " btn-primary" : "")
+    })
+}

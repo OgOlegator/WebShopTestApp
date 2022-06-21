@@ -1,0 +1,13 @@
+﻿@model ShopTobaccoWebApp.Domain.Entities.Cart
+
+<div class="navbar-right">
+    @Html.ActionLink("Корзина", "Index", "Cart",
+    new { returnUrl = Request.Url.PathAndQuery },
+    new { @class = "btn btn-default navbar-btn" })
+</div>
+
+<div class="navbar-text navbar-right">
+    <b>Ваша корзина:</b>
+    @Model.Lines.Sum(x => x.Quantity) позиций, на сумму
+    @Model.ComputeTotalValue().ToString("# руб")
+</div>
