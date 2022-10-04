@@ -17,6 +17,21 @@
         <div id="categories" class="col-xs-3">
             @Html.Action("Menu", "Nav")
         </div>
+        <div>
+            @using(Html.BeginForm("List", "Product"))
+            {
+                <table>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="searchString" name="searchString" placeholder="Поиск" value="">
+                        </td>
+                        <td>
+                            <input type="submit" class="btn btn" value="Найти" />
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
         <div class="col-xs-8">
             @RenderBody()
         </div>
