@@ -17,10 +17,20 @@
         <div id="categories" class="col-xs-3">
             @Html.Action("Menu", "Nav")
         </div>
-        @* Строка поиска товара, необходимо добавить контролер + учесть, что список товаров может быть отфильтрован *@
-        <div class="col-md-8 mb-3">
-            <input type="text" class="form-control" id="SearchString" placeholder="Поиск" value="">
-            <input type="submit" class="btn" value="Найти" />
+        <div>
+            @using(Html.BeginForm("List", "Product"))
+            {
+                <table>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="searchString" name="searchString" placeholder="Поиск" value="">
+                        </td>
+                        <td>
+                            <input type="submit" class="btn btn" value="Найти" />
+                        </td>
+                    </tr>
+                </table>
+            }
         </div>
         <div class="col-xs-8">
             @RenderBody()
